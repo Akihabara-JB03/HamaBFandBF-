@@ -11,15 +11,15 @@ char iniPath[MAX_PATH];
 
 #define DG_DT 0
 int debug_mode = DG_DT;
-void dump_memory(unsigned char *mem, int pos, int size)
+void dump_memory(unsigned short *mem, int pos, int size)
 {
     printf("\r");
     for(int i = 0; i < size; i++)
     {
         if(i == pos)
-            printf("[%03d] ", mem[i]);
+            printf("[%05d] ", mem[i]);
         else
-            printf(" %03d  ", mem[i]);
+            printf(" %05d  ", mem[i]);
     }
 
     fflush(stdout);
@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
         printf("使い方: brainfuck.exe ファイル名 (-debug or -nodebug)\n");
         return 1;
     }
-    unsigned char mem[MEM_SIZE] = {0};
+    unsigned short mem[MEM_SIZE] = {0};
     int pos = 0;
     FILE *fp = fopen(argv[1], "r");
 
@@ -79,10 +79,9 @@ int main(int argc, char *argv[]) {
             case '\\':
                 return 0;
             case '#':
-                if (mem[pos++] == 1) {
+                if (mem[pos] == 1) {
                     return 0;
                 }
-                pos--;
                 break;
             case '+':
                 mem[pos]++;
