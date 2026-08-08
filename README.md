@@ -66,12 +66,8 @@ ASCIIコード65を作成して出力します。
 
 ## Cell Size
 
-デフォルトでは8bitセルを使用します。
-
-拡張版では16bitセルなどの対応を予定しています。
-
-*まだ実装できておりません*
-
+デフォルトでは16bitセルを使用します。
+**ASCIIは、もう関係ないのかな...**
 ## License
 
 This project is licensed under the GNU General Public License v3.0.
