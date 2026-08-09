@@ -1,1 +1,2 @@
 *.hsp linguist-language=BASIC
+*.bf linguist-language=Brainfuck
