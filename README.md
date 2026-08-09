@@ -67,7 +67,7 @@ ASCIIコード65を作成して出力します。
 ## Cell Size
 
 デフォルトでは16bitセルを使用します。
-**ASCIIは、もう関係ないのかな...**
+**ASCIIは、もうほぼないのか～ 127/65535**
 ## License
 
 This project is licensed under the GNU General Public License v3.0.
