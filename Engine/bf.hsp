@@ -1,11 +1,11 @@
 #include "hspext.as"
 
-title "HamaBF GUI Frontend"
+title "BF GUI Frontend"
 screen 0, 640, 480
 
 // タイトルラベル
 pos 20, 10 : objsize 600, 20
-mes "HamaBF コード入力 (拡張命令対応):"
+mes "BF コード入力:"
 
 // 1. Brainfuckコード入力ボックス
 pos 20, 30 : objsize 600, 150
@@ -45,11 +45,14 @@ stop
     pipeexec cmd_out, cmd_line, 0
     
     // 実行完了まで待機
+    // 実行完了まで待機しつつ、リアルタイムに画面を更新
     repeat
         pipeget cmd_out
+        objprm 3, cmd_out // ループの中で常に最新の状態に書き換える
         if stat == 0 : break
-        await 10
+        await 30 // C言語側の出力速度に合わせて少し待つ
     loop
+
     
     // 結果を画面のテキストボックスに反映
     objprm 3, cmd_out
